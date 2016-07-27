@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                       boolean isInserted =  myDb.insertData(editName.getText().toString(),editSurname.getText().toString(),editMarks.getText().toString());
+                    if(isInserted){
+                        Toast.makeText(MainActivity.this,"Data inserted",Toast.LENGTH_LONG).show();
 
+                    }
                     }
                 }
         );
